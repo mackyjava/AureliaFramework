@@ -1,0 +1,31 @@
+<template>
+  <require from="bootstrap/css/bootstrap.css"></require>
+  <require from="./styles.css"></require>
+  
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        <i class="fa fa-user">User</i>
+        <span>To Do App</span>
+      </a>
+    </div>
+  </nav>
+  <div class="container text-center">
+  <h1 class= "text-center">${heading}</h1>
+  <form submit.trigger= "addTodo()" class="text-center" >
+    <input type = "text" value.bind = "todoDescription">
+    <button type = "submit">Add Todo</button>
+  </form>
+    <ul>
+      <li repeat.for="todo of todos">
+        <input type="checkbox" checked.bind="todo.done">
+        <span css = "text-decoration: ${todo.done ? 'line-through' : 'none'}">
+          ${todo.description}
+        </span >
+        <button click.trigger="removeTodo(todo)">Remove</button>
+        <br>
+      </li>
+        
+    </ul>
+    </div>
+</template>
